@@ -35,9 +35,15 @@ export default {
       consola.log('---16---');
       worker.recognize(img)
               .progress(progress => {
-                console.log('progress', progress);
+                consola.log('progress', progress);
               }).then(result => {
         consola.log('result', result);
+        const m = result.text.match(/[0-9]+keal/)[0];
+        const hoge = m.replace('keal', 'kcal');
+        consola.log('---hoge---');
+        consola.log(hoge);
+        consola.log('---hoge---');
+
       });
     },
     previewImage: function(event) {
